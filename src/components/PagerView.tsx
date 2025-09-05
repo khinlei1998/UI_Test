@@ -94,18 +94,18 @@ function PagerViewScreen({
     [],
   );
 
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     const interval = setInterval(() => {
-  //       setCurrentPage(prev => {
-  //         const nextPage = (prev + 1) % sample_data.length;
-  //         ref.current?.setPage(nextPage);
-  //         return nextPage;
-  //       });
-  //       return () => clearInterval(interval);
-  //     }, 2000);
-  //   }, []),
-  // );
+  useFocusEffect(
+    useCallback(() => {
+      const interval = setInterval(() => {
+        setCurrentPage(prev => {
+          const nextPage = (prev + 1) % sample_data.length;
+          ref.current?.setPage(nextPage);
+          return nextPage;
+        });
+        return () => clearInterval(interval);
+      }, 2000);
+    }, []),
+  );
 
   return (
     <View testID="safe-area-view" style={styles.container}>
